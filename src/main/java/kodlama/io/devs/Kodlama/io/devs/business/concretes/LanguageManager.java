@@ -17,10 +17,10 @@ public class LanguageManager implements LanguageService {
 
     @Override
     public List<Language> getAll() {
-        return languageRepository.getAll();
+        return languageRepository.findAll();
     }
     public List<Language> add(Language language) throws Exception {
-        for (Language l : languageRepository.getAll()) {
+        for (Language l : languageRepository.findAll()) {
             if (language.getName().equals(l.getName())) {
                 throw new Exception("Girdiğiniz isimde programalama dili mevcuttur");
             } else if (language.getName().equals("")) {
@@ -32,7 +32,7 @@ public class LanguageManager implements LanguageService {
         return null;
     }
     public List<Language> remove(int id) throws Exception{
-        languageRepository.remove(id);
+        languageRepository.deleteById(id);
         return null;
     }
     public List<Language> editName(int id, String newName) throws Exception{

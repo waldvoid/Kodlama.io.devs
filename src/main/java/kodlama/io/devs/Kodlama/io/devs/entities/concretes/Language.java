@@ -1,32 +1,25 @@
 package kodlama.io.devs.Kodlama.io.devs.entities.concretes;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Table(name = "languages")
+@Data //getter setterlar
+@AllArgsConstructor // constructor oluşturalim
+@NoArgsConstructor // parametresiz de constructor oluşturmak istiyorum
+@Entity // sen bir veritabanı varlığısın
 public class Language {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // id'yi otomatik arttır
+    @Column(name = "id")
     private int id;
+    @Column(name = "name")
     private String name;
 
-    public Language(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
-    public Language() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 
 
